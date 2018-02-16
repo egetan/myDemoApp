@@ -38,14 +38,34 @@ import spark.template.mustache.MustacheTemplateEngine;
 
 public class App
 {
-    public static boolean search(ArrayList<Integer> array, int e) {
-      System.out.println("inside search");
+    public static boolean search(ArrayList<Integer> array, ArrayList<Integer> array2,int e,int e2) {
+	
+	int sayi1 = array.get(e);
+	int sayi2 = array2.get(e2);
+
+	if(array.size()<=e || array2.size()<=e2){
+		return false
+	}
+	if(sayi2 == 0){
+		return false;
+	}
+
+	if(sayi1%sayi2 != 0){
+		return false;
+	}
+
+	if(sayi1<0 || sayi2<0){
+		return false;
+	}
+	return true;
+
+     /* System.out.println("inside search");
       if (array == null) return false;
 
       for (int elt : array) {
         if (elt == e) return true;
       }
-      return false;
+      return false;*/
     }
 
     public static void main(String[] args) {
@@ -68,10 +88,25 @@ public class App
           System.out.println(inputList);
 
 
-          String input2 = req.queryParams("input2").replaceAll("\\s","");
-          int input2AsInt = Integer.parseInt(input2);
+          String input3 = req.queryParams("input3").replaceAll("\\s","");
+          int input3AsInt = Integer.parseInt(input3);
+	
+	String input3 = req.queryParams("input3");
+          java.util.Scanner sc3 = new java.util.Scanner(input3);
+          sc3.useDelimiter("[;\r\n]+");
+          java.util.ArrayList<Integer> inputList2 = new java.util.ArrayList<>();
+          while (sc3.hasNext())
+          {
+            int value2 = Integer.parseInt(sc3.next().replaceAll("\\s",""));
+            inputList2.add(value2);
+          }
+          System.out.println(inputList2);
 
-          boolean result = App.search(inputList, input2AsInt);
+
+          String input4 = req.queryParams("input4").replaceAll("\\s","");
+          int input4AsInt = Integer.parseInt(input4);
+
+          boolean result = App.search(inputList,inputList2,input3AsInt input4AsInt);
 
          Map map = new HashMap();
           map.put("result", result);
