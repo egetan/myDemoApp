@@ -44,7 +44,7 @@ public class App
 	int sayi2 = array2.get(e2);
 
 	if(array.size()<=e || array2.size()<=e2){
-		return false
+		return false;
 	}
 	if(sayi2 == 0){
 		return false;
@@ -97,7 +97,7 @@ public class App
           java.util.ArrayList<Integer> inputList2 = new java.util.ArrayList<>();
           while (sc2.hasNext())
           {
-            int value2 = Integer.parseInt(sc3.next().replaceAll("\\s",""));
+            int value2 = Integer.parseInt(sc2.next().replaceAll("\\s",""));
             inputList2.add(value2);
           }
           System.out.println(inputList2);
@@ -106,7 +106,7 @@ public class App
           String input4 = req.queryParams("input4").replaceAll("\\s","");
           int input4AsInt = Integer.parseInt(input4);
 
-          boolean result = App.search(inputList,inputList2,input3AsInt input4AsInt);
+          boolean result = App.search(inputList,inputList2,input3AsInt, input4AsInt);
 
          Map map = new HashMap();
           map.put("result", result);

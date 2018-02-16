@@ -31,28 +31,36 @@ public class AppTest
     /**
      * Rigourous Test :-)
      */
-    public void testApp()
-    {
-        assertTrue( true );
-    }
 
-    public void testFound() {
+     public void indexOutOfBounds() {
       ArrayList<Integer> array = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
-      assertTrue(new App().search(array, 4));
+      ArrayList<Integer> array2 = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
+      assertFalse(new App().search(array,array2,3, 4));
     }
 
-    public void testNotFound() {
+    public void dividerEqualsZero() {
       ArrayList<Integer> array = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
-      assertFalse(new App().search(array, 5));
+      ArrayList<Integer> array2 = new ArrayList<>(Arrays.asList(0, 2, 3, 4));
+      assertFalse(new App().search(array,array2,3, 0));
     }
 
-    public void testEmptyArray() {
-      ArrayList<Integer> array = new ArrayList<>();
-      assertFalse(new App().search(array, 1));
+    public void DividesWithNoRemainder() {
+      ArrayList<Integer> array = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
+      ArrayList<Integer> array2 = new ArrayList<>(Arrays.asList(0, 2, 3, 4));
+      assertFalse(new App().search(array,array2,3, 1));
     }
 
     public void testNull() {
-      assertFalse(new App().search(null, 1));
+      ArrayList<Integer> array = new ArrayList<>(Arrays.asList(-1, 2, -3, -4));
+      ArrayList<Integer> array2 = new ArrayList<>(Arrays.asList(0, 2, 3, 4));
+      assertFalse(new App().search(array,array2,3, 1));
     }
+	
+    public void allPassed() {
+      ArrayList<Integer> array = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
+      ArrayList<Integer> array2 = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
+      assertTrue(new App().search(array,array2,3, 1));
+    }
+
 
 }
