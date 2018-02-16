@@ -91,11 +91,11 @@ public class App
           String input3 = req.queryParams("input3").replaceAll("\\s","");
           int input3AsInt = Integer.parseInt(input3);
 	
-	String input3 = req.queryParams("input3");
-          java.util.Scanner sc3 = new java.util.Scanner(input3);
-          sc3.useDelimiter("[;\r\n]+");
+	String input2 = req.queryParams("input2");
+          java.util.Scanner sc2 = new java.util.Scanner(input2);
+          sc2.useDelimiter("[;\r\n]+");
           java.util.ArrayList<Integer> inputList2 = new java.util.ArrayList<>();
-          while (sc3.hasNext())
+          while (sc2.hasNext())
           {
             int value2 = Integer.parseInt(sc3.next().replaceAll("\\s",""));
             inputList2.add(value2);
